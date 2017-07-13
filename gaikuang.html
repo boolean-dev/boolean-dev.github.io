@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/> 
+		<link rel="stylesheet" type="text/css" href="css/initi.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<!-- 下面滚动图插件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/plus1.css" />
+		<!-- 下面滚动图插件结束 -->
+		<!-- 焦点图插件开始 -->
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!-- 焦点图插件开始 -->
+		<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript">
+			$(function() {
+				//焦点图插件代码开始
+				$(".main_visual").hover(
+					function(){
+						$("#btn_prev,#btn_next").fadeIn()
+					},
+					function(){
+						$("#btn_prev,#btn_next").fadeOut()
+					}
+				);
+				$dragBln = false;
+				$(".main_image").touchSlider({
+					flexible : true,
+					speed : 200,
+					btn_prev : $("#btn_prev"),
+					btn_next : $("#btn_next"),
+					paging : $(".flicking_con a"),
+					counter : function (e){
+						$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+					}
+				});
+				$(".main_image").bind("mousedown", function() {
+					$dragBln = false;
+				});
+				
+				$(".main_image").bind("dragstart", function() {
+					$dragBln = true;
+				});
+				
+				$(".main_image a").click(function(){
+					if($dragBln) {
+						return false;
+					}
+				});
+				timer = setInterval(function(){
+					$("#btn_next").click();
+				}, 5000);
+				$(".main_visual").hover(
+					function(){
+						clearInterval(timer);
+					},
+					function(){
+						timer = setInterval(
+							function(){
+								$("#btn_next").click();
+							},5000
+						);
+					}
+				);
+				
+				$(".main_image").bind("touchstart",function(){
+					clearInterval(timer);
+				}).bind("touchend", function(){
+					timer = setInterval(function(){
+						$("#btn_next").click();
+					}, 5000);
+				});
+				//焦点图插件代码结束
+				
+				//topbar 单击样式
+				$(".topbar li a").click(function(){
+					$(this).css("color", "#0153a5");
+					$(this).parent().siblings().find("a").css("color", "#666");
+				});
+				
+				//鼠标经过列表样式
+				$(".left_ul li").hover (
+					function(){
+						$(this).addClass("li_click_b");
+					},
+					function(){
+						$(this).removeClass("li_click_b");
+					}
+				);
+				
+				<!-- 下面滚动图插件开始 -->
+				$li1 = $(".apply_nav .apply_array");
+				$window1 = $(".apply .apply_w");
+				$left1 = $(".apply .img_l");
+				$right1 = $(".apply .img_r");
+				$window1.css("width", $li1.length*176);
+				var lc1 = 0;
+				var rc1 = $li1.length-5;
+				$left1.click(function(){
+					if (lc1 < 1) {
+						
+						return;
+					}
+					lc1--;
+					rc1++;
+					$window1.animate({left:'+=176px'}, 1000);
+				});
+				$right1.click(function(){
+					if (rc1 < 1){
+						
+						return;
+					}
+					lc1++;
+					rc1--;
+					$window1.animate({left:'-=176px'}, 1000);
+				});
+				<!-- 下面滚动图插件结束 -->
+			});
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="help">
+					<a href="">联系我们</a> | 
+					<a href="">站点帮助</a> | 
+					<a href="">问题反馈</a> 
+				</div>
+			</div>
+			<div class="topbar">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="about.html">公园简介</a></li>
+					<li><a href="news.html">新闻动态</a></li>
+					<li><a href="show.html">图片墙</a></li>
+					<li><a href="map.html">详细地址</a></li>
+					<li><a class="clicked" href="gaikuang.html">景区概况</a></li>
+					<li><a href="wenhua.html">景区文化</a></li>
+					<li><a href="menpiao.html">门票政策</a></li>
+					<li><a href="lianxi.html">联系我们</a></li>
+				</ul>
+			</div>
+			<!-- 好像只有添加iframe才能使头部独立成一个文件来处理，而且使用js给导航栏添加单击样式
+			<iframe name="contain" width="100%" height="100%"></iframe>
+			-->
+			<div class="content">
+				<div class="bar">
+					<img src="images/bar6.JPG" />
+			  </div>
+				<div class="int">
+					<div class="int_con">
+						<h1>明月山概述</h1>
+						<p> </p>
+						<p>　　国家级风景名胜区、国家AAAA景区、国家森林公园、国家地质公园、国家自然遗产，江西省新赣鄱十景之一-----明月山,位于全国第一个生态城市宜春市城西南15公里处，规划面积104平方公里，属武功山东北端的山麓部分，是以"奇峰险壑、温泉飞瀑、珍稀动植物和禅宗文化"为主要特色，集"生态游览、休闲度假、科普教育和宗教旅游"为一体的山岳型风景名胜区 。 <br>
+						  <br>
+						  &ldquo;明月处处有，宜春月最明&rdquo;古人曾在诗中这样写道。位于宜春市境内的明月山，便是这份浓厚的月亮文化的发源地之一。明月山，因山上&ldquo;有石夜光如月&rdquo;而得名，竹海、飞瀑、松涛、奇峰等一些列优美的景致，让这座名山&ldquo;步步拾锦绣，一里不同天&rdquo;。根据神话史诗记载，明月山为嫦娥的故乡，是当年嫦娥奔月的地方，因此宜春有&ldquo;月都&rdquo;、&ldquo;月城&rdquo;等美称。<br>
+						  <br>
+						  在市政府的倡导组织下，宜春市已于2008年9月成功注册了&ldquo;月亮之都&rdquo;、&ldquo;月亮之城&rdquo;等商标，并进行了域名注册。随着2009央视中秋晚会&ldquo;宜春月•中华情&rdquo;CCTV央视大型中秋晚会的全球直播，以&ldquo;月亮文化&rdquo;著称的宜春成为了华人世界家喻户晓的&ldquo;明月之都&rdquo;。<br>
+						  <br>
+						  明月山主要由太平山、玉京山、老山、仰山等十几座海拨千米以上的山峰组成、主峰太平山，海拨1735.6米，因整个山势呈半圆形，恰似半轮明月，故称明月山。明月群山，巍峨壮观，千姿百态，有的以绮丽著称；有的以雄秀见长；有的以险峰争奇；有的以幽静取胜。明月山景色，贵在天然。茫茫云海，山野天池，猕猴出没，有"绝壁惊人，怪石争奇，苍松斗妍，山花织锦"四绝，以峰、瀑、洞、石闻名。境内层峦叠嶂，怪石林立；山花吐艳，苍松傲然。处处飞禽走兽，花香鸟语；满目石径苍苔，流泉飞瀑，身临其境，如入仙境，有"酷似黄山"美称。<br>
+						  <br>
+						  明月山属亚热带湿润季风性气候，山水奇特，气候温和，年平均气温在12℃-15℃左右，年平均降水量为1800-2000mm。适应各种动植物生长，素有"天然动物园"，"植物王国"之美称，境内山间幽芳，四季不败，茂林修竹，云腾雾卷，雾凝为雨，阴翳出泉，山涧谷壑泉声不断，景区内绿色葱茏，空气清新，山上空气负离子含量每立方厘米高达7万多个，为国家标准的35倍，是同内外享有盛名的天然氧吧。<br>
+						  <br>
+						  明月山是国家级森林公园、省级风景名胜区，位于全国第一个生态城市宜春市。因整个山势呈半轮明月状，故称明月山。属亚热带湿润季风性气候，适应各种动植物生长，拥有红豆杉、中华落叶木莲等珍稀植物及温汤富硒温泉等资源。以奇峰险壑、温泉飞瀑、珍稀动植物和禅宗文化为主要特色。位于江西省宜春市袁州区城西南31公里处，是集&ldquo;生态游览、休闲度假、科普教育和宗教旅游&rdquo;为一体的山岳型风景名胜区。<br>
+						  <br>
+						  明月群山，巍峨壮观，千姿百态，有的以绮丽著称；有的以雄秀见长；有的以险峰争奇；有的以幽静取胜。 明月山景色，贵在天然。茫茫云海，山野天池，猕猴出没，有"绝壁惊人，怪石争奇，苍松斗妍，山花织锦"四绝，以峰、瀑、洞、石闻名。境内层峦叠嶂，怪石林立；山花吐艳，苍松傲然。处处飞禽走兽，花香鸟语；满目石径苍苔，流泉飞瀑，身临其境，如入仙境，有"酷似黄山"美称。<br>
+						  <br>
+						  这里春天一片翠绿，夏天浓荫遮天，秋季满谷金黄，严冬则处处玉树银花。明月山山水奇特，气候温和，素有"植物王国"之美称。山上不仅有岩参、石耳等药材，麂、獐、蛇、野猪、猴、野鸡、兔子、狐狸、娃娃鱼等动物，而且还有以"明月山"名字命名的明月山全缘叶红山茶、杜鹃、木莲等花木、松、竹、柏、樟、杉、银杏、银鹊、青线柳等树木，其中：起源于2亿3千万年前的南方红豆杉富含紫杉醇，为治疗癌症的上佳物质，是国内珍稀植物，中华落叶木莲则是世界珍稀植物，现仅存两棵，为明月山特有。<br>
+						  <br>
+						  历史文化<br>
+						  <br>
+						  明月山历史悠久，人文景观丰富，为我国宗教文化繁衍之地。早在西汉文帝刘恒在位时，就有&ldquo;仰山古庙&rdquo;，即是古时闻名遐迩的仰山龙王香火地，又是全国各地龙王菩萨的发祥地。魏晋时，相传道教祖师葛玄、葛洪曾先后在仰山集云峰修仙炼丹。唐会昌元年，我国佛教禅宗五派之一沩仰宗创始人慧寂禅师在仰山创建栖隐寺(太平兴国寺)。自此，该寺1000多年佛事活动绵延不息，沩仰宗风遍传天下，成为中国古代佛教丛林胜地，印度、新罗国(今朝鲜半岛)、日本等海内外僧人前来参学问道，游览观光者不可胜数。现在其遗址前后两侧，已发现唐、宋、明、清时期禅僧坟塔一百余座。<br>
+						  <br>
+						  "仁者乐山，智者乐水"，韩愈、郑谷、陆希声、张商英、辛弃疾、范成大、黄庭坚、朱熹、徐霞客、严嵩等许多历史名人都曾游览明月山水，他们或参神祈雨、或挂冠归隐、或寻幽探源、或访友讲学、或考察山川地貌，留下诸如唐朝大文学家韩愈"莫以宜春远，江山多胜游"，南宋大理学家朱熹"我行宜春野，四顾多奇山"，明末著名地理学家徐霞客"观日景如金在冶，游人履步彩云间"等许多脍炙人口的动人诗篇。此外，明月山 还是红色革命胜地，1936年4-5月间，中央湘赣省委书记兼军政委员会主席和湘赣游击队政委潭余保同志率省委机关、教导队、特务队及萍(乡)宜(春)安(福)中心县委一起转战来到明月山，进驻瑞庆塔下的瑞庆寺、辟场练兵、扩大武装、抗击敌军，取得辉煌战果，有《瑞庆塔联》诗云：游观碧名山，探奇景、赏风光、当登瑞庆天然塔；瞻仰红军驻地，论战功，怀壮烈，应立崔巍纪念碑。</p>
+						<p>&nbsp;</p>
+</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="address">地址：江西省宜春市学府路576号宜春学院</p>
+			<p>鄢剑涛作品</p>
+		</div>
+	</body>
+</html>	

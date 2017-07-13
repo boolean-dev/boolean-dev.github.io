@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/> 
+		<link rel="stylesheet" type="text/css" href="css/initi.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<!-- 下面滚动图插件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/plus1.css" />
+		<!-- 下面滚动图插件结束 -->
+		<!-- 焦点图插件开始 -->
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!-- 焦点图插件开始 -->
+		<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript">
+			$(function() {
+				//焦点图插件代码开始
+				$(".main_visual").hover(
+					function(){
+						$("#btn_prev,#btn_next").fadeIn()
+					},
+					function(){
+						$("#btn_prev,#btn_next").fadeOut()
+					}
+				);
+				$dragBln = false;
+				$(".main_image").touchSlider({
+					flexible : true,
+					speed : 200,
+					btn_prev : $("#btn_prev"),
+					btn_next : $("#btn_next"),
+					paging : $(".flicking_con a"),
+					counter : function (e){
+						$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+					}
+				});
+				$(".main_image").bind("mousedown", function() {
+					$dragBln = false;
+				});
+				
+				$(".main_image").bind("dragstart", function() {
+					$dragBln = true;
+				});
+				
+				$(".main_image a").click(function(){
+					if($dragBln) {
+						return false;
+					}
+				});
+				timer = setInterval(function(){
+					$("#btn_next").click();
+				}, 5000);
+				$(".main_visual").hover(
+					function(){
+						clearInterval(timer);
+					},
+					function(){
+						timer = setInterval(
+							function(){
+								$("#btn_next").click();
+							},5000
+						);
+					}
+				);
+				
+				$(".main_image").bind("touchstart",function(){
+					clearInterval(timer);
+				}).bind("touchend", function(){
+					timer = setInterval(function(){
+						$("#btn_next").click();
+					}, 5000);
+				});
+				//焦点图插件代码结束
+				
+				//topbar 单击样式
+				$(".topbar li a").click(function(){
+					$(this).css("color", "#0153a5");
+					$(this).parent().siblings().find("a").css("color", "#666");
+				});
+				
+				//鼠标经过列表样式
+				$(".left_ul li").hover (
+					function(){
+						$(this).addClass("li_click_b");
+					},
+					function(){
+						$(this).removeClass("li_click_b");
+					}
+				);
+				
+				<!-- 下面滚动图插件开始 -->
+				$li1 = $(".apply_nav .apply_array");
+				$window1 = $(".apply .apply_w");
+				$left1 = $(".apply .img_l");
+				$right1 = $(".apply .img_r");
+				$window1.css("width", $li1.length*176);
+				var lc1 = 0;
+				var rc1 = $li1.length-5;
+				$left1.click(function(){
+					if (lc1 < 1) {
+						
+						return;
+					}
+					lc1--;
+					rc1++;
+					$window1.animate({left:'+=176px'}, 1000);
+				});
+				$right1.click(function(){
+					if (rc1 < 1){
+						
+						return;
+					}
+					lc1++;
+					rc1--;
+					$window1.animate({left:'-=176px'}, 1000);
+				});
+				<!-- 下面滚动图插件结束 -->
+			});
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="help">
+					<a href="">联系我们</a> | 
+					<a href="">站点帮助</a> | 
+					<a href="">问题反馈</a> 
+				</div>
+			</div>
+			<div class="topbar">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="about.html">公园简介</a></li>
+					<li><a href="news.html">新闻动态</a></li>
+					<li><a href="show.html">图片墙</a></li>
+					<li><a href="map.html">详细地址</a></li>
+					<li><a href="gaikuang.html">景区概况</a></li>
+					<li><a href="wenhua.html">景区文化</a></li>
+					<li><a href="menpiao.html">门票政策</a></li>
+					<li><a class="clicked" href="lianxi.html">联系我们</a></li>
+				</ul>
+			</div>
+			<!-- 好像只有添加iframe才能使头部独立成一个文件来处理，而且使用js给导航栏添加单击样式
+			<iframe name="contain" width="100%" height="100%"></iframe>
+			-->
+			<div class="content">
+				<div class="bar">
+					<img src="images/bar9.jpg" />
+				</div>
+				<div class="int">
+					<div class="int_con">
+						<h1>明月山联系信息</h1>
+						<p>联系单位: 明月山旅游营销有限公司 <br>
+						  电话: 0795-3516666 <br>
+						  传真: 0795-3511111<br>
+						  <br>
+						  官方网址: <a href="http://www.myswq.com/">www.myswq.com</a>  <a href="http://www.myswq.gov.cn/">www.myswq.gov.cn</a><br>
+						  咨询ＱＱ:  <a href="http://wpa.qq.com/msgrd?v=3&uin=1229012177&site=qq&menu=yes" target="_blank">1229012177@QQ.com</a> </p>
+						<div>明月山各市场联系信息</div>
+						<table width="600" border="1" align="center" cellpadding="3" cellspacing="0" bordercolorlight="#ffffff" bordercolordark="#8d8d8d" bgcolor="#FFFFFF">
+						  <tbody>
+						    <tr bgcolor="#b6fbf6">
+						      <td width="127"><div align="center">所属市场</div></td>
+						      <td><div align="center">联系人及电话</div></td>
+					        </tr>
+						    <tr>
+						      <td height="28" bgcolor="#FFFFFF"><div align="center">江西、福建市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">刘垂强　15079581088</div></td>
+					        </tr>
+						    <tr>
+						      <td bgcolor="#FFFFFF"><div align="center">湖北市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">李　军　15707950097</div></td>
+					        </tr>
+						    <tr>
+						      <td bgcolor="#FFFFFF"><div align="center">北京市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">周金波　15707950037</div></td>
+					        </tr>
+						    <tr>
+						      <td bgcolor="#FFFFFF"><div align="center">湖南市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">黄友涛　15707950083</div></td>
+					        </tr>
+						    <tr>
+						      <td bgcolor="#FFFFFF"><div align="center">浙江沪市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">郑　东　18616708480</div></td>
+					        </tr>
+						    <tr>
+						      <td bgcolor="#FFFFFF"><div align="center">广东市场</div></td>
+						      <td bgcolor="#FFFFFF"><div align="center">李　化　15707950156</div></td>
+					        </tr>
+					      </tbody>
+					  </table>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="address">地址：江西省宜春市袁州区学府路576号宜春学院</p>
+			<p>鄢剑涛作品</p>
+		</div>
+		
+	</body>
+</html>	

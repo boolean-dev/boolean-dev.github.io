@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/> 
+		<link rel="stylesheet" type="text/css" href="css/initi.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<!-- 下面滚动图插件开始 -->
+		<link rel="stylesheet" type="text/css" href="css/plus1.css" />
+		<!-- 下面滚动图插件结束 -->
+		<!-- 焦点图插件开始 -->
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<!-- 焦点图插件开始 -->
+		<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+		<!-- 焦点图插件结束 -->
+		<script type="text/javascript">
+			$(function() {
+				//焦点图插件代码开始
+				$(".main_visual").hover(
+					function(){
+						$("#btn_prev,#btn_next").fadeIn()
+					},
+					function(){
+						$("#btn_prev,#btn_next").fadeOut()
+					}
+				);
+				$dragBln = false;
+				$(".main_image").touchSlider({
+					flexible : true,
+					speed : 200,
+					btn_prev : $("#btn_prev"),
+					btn_next : $("#btn_next"),
+					paging : $(".flicking_con a"),
+					counter : function (e){
+						$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+					}
+				});
+				$(".main_image").bind("mousedown", function() {
+					$dragBln = false;
+				});
+				
+				$(".main_image").bind("dragstart", function() {
+					$dragBln = true;
+				});
+				
+				$(".main_image a").click(function(){
+					if($dragBln) {
+						return false;
+					}
+				});
+				timer = setInterval(function(){
+					$("#btn_next").click();
+				}, 5000);
+				$(".main_visual").hover(
+					function(){
+						clearInterval(timer);
+					},
+					function(){
+						timer = setInterval(
+							function(){
+								$("#btn_next").click();
+							},5000
+						);
+					}
+				);
+				
+				$(".main_image").bind("touchstart",function(){
+					clearInterval(timer);
+				}).bind("touchend", function(){
+					timer = setInterval(function(){
+						$("#btn_next").click();
+					}, 5000);
+				});
+				//焦点图插件代码结束
+				
+				//topbar 单击样式
+				$(".topbar li a").click(function(){
+					$(this).css("color", "#0153a5");
+					$(this).parent().siblings().find("a").css("color", "#666");
+				});
+				
+				//鼠标经过列表样式
+				$(".left_ul li").hover (
+					function(){
+						$(this).addClass("li_click_b");
+					},
+					function(){
+						$(this).removeClass("li_click_b");
+					}
+				);
+				
+				<!-- 下面滚动图插件开始 -->
+				$li1 = $(".apply_nav .apply_array");
+				$window1 = $(".apply .apply_w");
+				$left1 = $(".apply .img_l");
+				$right1 = $(".apply .img_r");
+				$window1.css("width", $li1.length*176);
+				var lc1 = 0;
+				var rc1 = $li1.length-5;
+				$left1.click(function(){
+					if (lc1 < 1) {
+						
+						return;
+					}
+					lc1--;
+					rc1++;
+					$window1.animate({left:'+=176px'}, 1000);
+				});
+				$right1.click(function(){
+					if (rc1 < 1){
+						
+						return;
+					}
+					lc1++;
+					rc1--;
+					$window1.animate({left:'-=176px'}, 1000);
+				});
+				<!-- 下面滚动图插件结束 -->
+			});
+		</script>
+	</head>
+<body>
+		<div class="main">
+			<div class="header">
+				<div class="help">
+					<a href="">联系我们</a> | 
+					<a href="">站点帮助</a> | 
+					<a href="">问题反馈</a> 
+				</div>
+			</div>
+			<div class="topbar">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="about.html">公园简介</a></li>
+					<li><a href="news.html">新闻动态</a></li>
+					<li><a href="show.html">图片墙</a></li>
+					<li><a href="map.html">详细地址</a></li>
+					<li><a href="gaikuang.html">景区概况</a></li>
+					<li><a href="wenhua.html">景区文化</a></li>
+					<li><a class="clicked" href="menpiao.html">门票政策</a></li>
+					<li><a href="lianxi.html">联系我们</a></li>
+				</ul>
+			</div>
+			<!-- 好像只有添加iframe才能使头部独立成一个文件来处理，而且使用js给导航栏添加单击样式
+			<iframe name="contain" width="100%" height="100%"></iframe>
+			-->
+			<div class="content">
+				<div class="bar">
+					<img src="images/bar8.jpg" />
+				</div>
+				<div class="int">
+					<div class="int_con">
+						<p align="center" >明月山门票政策 </p>
+<ol>
+                          <li><strong>普通票价格与适用规则</strong><strong>:</strong><br>
+                            1、票价：120元/人·次。<br>
+                            2、适用所有人士。<br>
+                            3、一人一票，当日单次进入景区有效。<br>
+                            <br>
+                            <strong>二、半票价格与适用规则：</strong><br>
+                            1、票价：60元/人·次。<br>
+                            2、普通高等教育阶段、高中教育阶段和义务教育阶段在校学生凭本人学生证（研究生、博士、硕士及在职院校、函授、电大、自修大学的学员除外）。<br>
+                            3、宜春市民（含各县市区）凭本人身份证 (节假日和周六周日除外)。<br>
+                            4、身高在120cm—140cm的儿童。<br>
+                            5、特批团队。<br>
+                            6、一人一票，当日单次进入景区有效。<br>
+                            <br>
+                            <strong>三、免费票适用规则</strong><strong>:</strong><br>
+                            1、身高1.2米以下（含1.2米）儿童。<br>
+                            3、70岁以上的老人（凭居民身份证）。<br>
+                            4、残疾人（凭残疾证）。<br>
+                            5、现役军人、革命伤残军人（凭有效证件）。<br>
+                            6、持有效全国导游证、经理资格证和领队证的人员。<br>
+                            7、新闻媒体记者（凭国家新闻出版署颁发的记者证）。<br>
+                            8、一人一票，当日单次进入景区。<br>
+                          </li>
+</ol>
+<p>&nbsp;</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="address">地址：江西省宜春市袁州区学府路576号宜春学院</p>
+			<p>鄢剑涛作品</p>
+		</div>
+		</p>
+	</body>
+</html>	
