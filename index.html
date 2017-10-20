@@ -1,348 +1,110 @@
-﻿<!DOCTYPE html>
-<html>
-	<head>
-		<title>首页</title>
-		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/> 
-		<link rel="stylesheet" type="text/css" href="css/initi.css" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<!-- 下面滚动图插件开始 -->
-		<link rel="stylesheet" type="text/css" href="css/plus1.css" />
-		<!-- 下面滚动图插件结束 -->
-		<!-- 焦点图插件开始 -->
-		<link type="text/css" href="css/style.css" rel="stylesheet"/>
-		<!-- 焦点图插件结束 -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<!-- 焦点图插件开始 -->
-		<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
-		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
-		<!-- 焦点图插件结束 -->
-		<script type="text/javascript">
-			$(function() {
-				//焦点图插件代码开始
-				$(".main_visual").hover(
-					function(){
-						$("#btn_prev,#btn_next").fadeIn()
-					},
-					function(){
-						$("#btn_prev,#btn_next").fadeOut()
-					}
-				);
-				$dragBln = false;
-				$(".main_image").touchSlider({
-					flexible : true,
-					speed : 200,
-					btn_prev : $("#btn_prev"),
-					btn_next : $("#btn_next"),
-					paging : $(".flicking_con a"),
-					counter : function (e){
-						$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
-					}
-				});
-				$(".main_image").bind("mousedown", function() {
-					$dragBln = false;
-				});
-				
-				$(".main_image").bind("dragstart", function() {
-					$dragBln = true;
-				});
-				
-				$(".main_image a").click(function(){
-					if($dragBln) {
-						return false;
-					}
-				});
-				timer = setInterval(function(){
-					$("#btn_next").click();
-				}, 5000);
-				$(".main_visual").hover(
-					function(){
-						clearInterval(timer);
-					},
-					function(){
-						timer = setInterval(
-							function(){
-								$("#btn_next").click();
-							},5000
-						);
-					}
-				);
-				
-				$(".main_image").bind("touchstart",function(){
-					clearInterval(timer);
-				}).bind("touchend", function(){
-					timer = setInterval(function(){
-						$("#btn_next").click();
-					}, 5000);
-				});
-				//焦点图插件代码结束
-				
-				//topbar 单击样式
-				$(".topbar li a").click(function(){
-					$(this).css("color", "#0153a5");
-					$(this).parent().siblings().find("a").css("color", "#666");
-				});
-				
-				//鼠标经过列表样式
-				$(".left_ul li").hover (
-					function(){
-						$(this).addClass("li_click_b");
-					},
-					function(){
-						$(this).removeClass("li_click_b");
-					}
-				);
-				
-				<!-- 下面滚动图插件开始 -->
-				$li1 = $(".apply_nav .apply_array");
-				$window1 = $(".apply .apply_w");
-				$left1 = $(".apply .img_l");
-				$right1 = $(".apply .img_r");
-				$window1.css("width", $li1.length*176);
-				var lc1 = 0;
-				var rc1 = $li1.length-5;
-				$left1.click(function(){
-					if (lc1 < 1) {
-						
-						return;
-					}
-					lc1--;
-					rc1++;
-					$window1.animate({left:'+=176px'}, 1000);
-				});
-				$right1.click(function(){
-					if (rc1 < 1){
-						
-						return;
-					}
-					lc1++;
-					rc1--;
-					$window1.animate({left:'-=176px'}, 1000);
-				});
-				<!-- 下面滚动图插件结束 -->
-			});
-		</script>
-	</head>
-	<body>
-		<div class="main">
-			<div class="header">
-				<div class="help">
-					<a href="">联系我们</a> | 
-					<a href="">站点帮助</a> | 
-					<a href="">问题反馈</a> 
-				</div>
-			</div>
-			<div class="topbar">
-				<ul>
-					<li><a class="clicked" href="index.html">首页</a></li>
-					<li><a href="about.html">公园简介</a></li>
-					<li><a href="news.html">新闻动态</a></li>
-					<li><a href="show.html">景区图片</a></li>
-					<li><a href="map.html">详细地址</a></li>
-					<li><a href="gaikuang.html">景区概况</a></li>
-					<li><a href="wenhua.html">景区文化</a></li>
-					<li><a href="menpiao.html">门票信息</a></li>
-					<li><a href="lianxi.html">联系我们</a></li>
-				</ul>
-			</div>
-			<!-- 好像只有添加iframe才能使头部独立成一个文件来处理，而且使用js给导航栏添加单击样式
-			<iframe name="contain" width="100%" height="100%"></iframe>
-			-->
-			<div class="content">
-				<!-- 焦点图开始 -->
-				<div class="main_visual">
-					<div class="flicking_con">
-						<a href="#">1</a>
-						<a href="#">2</a>
-						<a href="#">3</a>
-						<a href="#">4</a>
-						<a href="#">5</a>
-					</div>
-					<div class="main_image">
-						<ul>
-							<li><span class="img_1"></span></li>
-							<li><span class="img_2"></span></li>
-							<li><span class="img_3"></span></li>
-							<li><span class="img_4"></span></li>
-							<li><span class="img_5"></span></li>
-						</ul>
-						<a href="javascript:;" id="btn_prev"></a>
-						<a href="javascript:;" id="btn_next"></a>
-					</div>
-				</div>
-				<!-- 焦点图结束 -->
-				
-				<!-- 通知 -->
-				<div class="notice">
-					<p>通知：<a href="">1.  明月山旅游区顺利通过5A景区景观质量专家评审 </a><a href="" class="more">更多>></a></p>
-				</div>
-				
-				<!-- 信息展示框 -->
-				<div class="message">
-					<div class="left">
-						<div class="left_m">
-							<div class="one_left">
-								<img src="images/one.jpg" style="*float: left" />
-								<img src="images/more_y.jpg" class="float_right" />
-								<div class="clear"></div>
-							</div>
-							<ul class="left_ul">
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li class="li_click"><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-							</ul>
-							<div class="clear: both"></div>
-						</div>
-						<div class="shadow">
-							<img src="images/shadow.jpg" />
-						</div>
-					</div>
-					<div class="right">
-						<div class="right_m">
-							<div class="one_left">
-								<img src="images/two.jpg" style="_float: left" />
-								<div class="clear"></div>
-							</div>
-							<div class="login">
-								<table>
-									<tr>
-										<td>
-											<p class="user">用户名：</p>
-										</td>
-										<td>
-											<input type="text" name="username" class="username" />
-										</td>
-										<td>
-											
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="pass">密<span style="margin: 0px 6px 0px 7px"></span>码：</p>
-										</td>
-										<td>
-											<input type="text" name="password" class="password" />
-										</td>
-										<td>	
-											<p class="forget"> 忘记密码！</p>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="submit" value="登录" class="sub" />
-										</td>
-										<td>
-											<input type="reset" value="取消" class="res" />
-										</td>
-										<td></td>
-									</tr>									
-								</table>
-							</div>
-							<div class="clear: both"></div>
-						</div>
-						<div class="shadow">
-							<img src="images/shadow.jpg" />
-						</div>
-					</div>
-					<div class="clear"></div>
-					<div class="left">
-						<div class="left_m">
-							<div class="one_left">
-								<img src="images/three.jpg" style="*float: left" />
-								<img src="images/more_b.jpg" class="float_right" />
-								<div class="clear"></div>
-							</div>
-							<ul class="left_ul">
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li ><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-							</ul>
-							<div class="clear: both"></div>
-						</div>
-						<div class="shadow">
-							<img src="images/shadow.jpg" />
-						</div>
-					</div>
-					<div class="right">
-						<div class="right_m">
-							<div class="one_left">
-								<img src="images/four.jpg" style="*float: left" />
-								<img src="images/more_b.jpg" class="float_right" />
-								<div class="clear"></div>
-							</div>
-							<ul class="left_ul">
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li ><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-								<li><a href="">宜春明月山欢迎您！！</a><span class="right_time">[2015-6-1]</span></li>
-							</ul>
-							<div class="clear: both"></div>
-						</div>
-						<div class="shadow">
-							<img src="images/shadow.jpg" />
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				
-				
-				
-				<!-- 下面滚动图片代码 -->
-				<div class="apply">
-					<div class="img_l"><img src="images/left.gif" /></div>
-					<div class="apply_nav">
-						<div class="apply_w">
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/lushan.jpg" /></div>
-								<div class="apply_info"><a href="http://www.china-lushan.com/" target="_blank">九江庐山</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/poyanghu.jpg" /></div>
-								<div class="apply_info"><a href="http://www.poyanghu.cc/" target="_blank">鄱阳湖湿地公园</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/tengwangge.jpg" /></div>
-								<div class="apply_info"><a href="http://www.nctwg.com/" target="_blank">南昌滕王阁</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/wugongshan.jpg" /></div>
-								<div class="apply_info"><a href="http://www.wugongshan.com//" target="_blank">萍乡武功山</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/xiannvhu.jpg" /></div>
-								<div class="apply_info"><a href="http://www.xiannvhu.gov.cn/" target="_blank">新余仙女湖</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/sanqingshan.jpg" /></div>
-								<div class="apply_info"><a href="http://sqs.sqs.gov.cn/" target="_blank">三清山</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/jingangshan.jpg" /></div>
-								<div class="apply_info"><a href="http://www.jgstour.com /" target="_blank">井冈山</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/haiyang.jpg" /></div>
-								<div class="apply_info"><a href="http://hygy.jxlyw.wang/" target="_blank">南昌海洋公园</a></div>
-							</div>
-							<div class="apply_array">
-								<div class="apply_img"><img src="images/anyi.jpg" /></div>
-								<div class="apply_info"><a href="http://www.ncaygc.com/" target="_blank">南昌安义古村</a></div>
-							</div>
-							
-						</div>
-					</div>
-					<div class="img_r"><img src="images/right.gif" /></div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-		<div class="footer">
-			<p class="address">地址：江西省宜春市袁州区学府路576号宜春学院</p>
-			<p>鄢剑涛作品</p>
-			
-		</div>
-			
-		 
-	</body>
-</html>	
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="173oOEe7Tg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="jellybool,JellyBool,PHP,Laravel">
+    <meta name="description" content="A Web Developer Full of Enthusiasm And Passion">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Jellybool blog">
+    <meta property="og:description" content="A Web Developer And Designer Full of Enthusiasm And Passion">
+    <meta property="og:url" content="https://jellybool.com/">
+    <meta property="og:site_name" content="JellyBool">
+    <meta property="article:section" content="PHP">
+    <meta property="article:published_time" content="">
+    <meta property="article:modified_time" content="">
+    <meta property="og:updated_time" content="">
+    <link rel="canonical" href="https://jellybool.com/">
+    <link rel="shortcut icon" href="https://jellybool.com/images/logo.ico">
+    <title>JellyBool | A Web Developer</title>
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway';
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+            .title a img {
+                max-height: none!important;
+                width: 120px;
+                height: 120px;
+                overflow: hidden;
+                border-radius: 50%;
+                background: #FFF;
+                box-shadow: rgba(255,255,255,1) 0 0 0 5px,rgba(0,0,0,1) 0 0 5px 4px;
+                -webkit-transition: -webkit-transform 600ms;
+                -moz-transition: -moz-transform 600ms;
+                transition: transform 600ms;
+            }
+            .title a img:hover {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    <a href="/">
+                       <img src="https://o0dpls1ru.qnssl.com/aviary_heibai_small.jpg" alt="JellyBool">
+                    </a>
+                </div>
+                <div class="links">
+                    <a target="_blank" rel="noreferrer noopener" href="https://laravist.com/blog">Blog</a>
+                    <a target="_blank" rel="noreferrer noopener" href="https://laravist.com">Laravel 视频教程</a>
+                    <a target="_blank" rel="noreferrer noopener" href="http://weibo.com/laravist">Weibo</a>
+                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/JellyBool">GitHub</a>
+                </div>
+            </div>
+        </div>
+    
+</body></html>

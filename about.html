@@ -1,196 +1,109 @@
-﻿<!DOCTYPE html>
-<html>
-	<head>
-		<title>首页</title>
-		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/> 
-		<link rel="stylesheet" type="text/css" href="css/initi.css" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<!-- 下面滚动图插件开始 -->
-		<link rel="stylesheet" type="text/css" href="css/plus1.css" />
-		<!-- 下面滚动图插件结束 -->
-		<!-- 焦点图插件开始 -->
-		<link type="text/css" href="css/style.css" rel="stylesheet"/>
-		<!-- 焦点图插件结束 -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<!-- 焦点图插件开始 -->
-		<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
-		<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
-		<!-- 焦点图插件结束 -->
-		<script type="text/javascript">
-			$(function() {
-				//焦点图插件代码开始
-				$(".main_visual").hover(
-					function(){
-						$("#btn_prev,#btn_next").fadeIn()
-					},
-					function(){
-						$("#btn_prev,#btn_next").fadeOut()
-					}
-				);
-				$dragBln = false;
-				$(".main_image").touchSlider({
-					flexible : true,
-					speed : 200,
-					btn_prev : $("#btn_prev"),
-					btn_next : $("#btn_next"),
-					paging : $(".flicking_con a"),
-					counter : function (e){
-						$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
-					}
-				});
-				$(".main_image").bind("mousedown", function() {
-					$dragBln = false;
-				});
-				
-				$(".main_image").bind("dragstart", function() {
-					$dragBln = true;
-				});
-				
-				$(".main_image a").click(function(){
-					if($dragBln) {
-						return false;
-					}
-				});
-				timer = setInterval(function(){
-					$("#btn_next").click();
-				}, 5000);
-				$(".main_visual").hover(
-					function(){
-						clearInterval(timer);
-					},
-					function(){
-						timer = setInterval(
-							function(){
-								$("#btn_next").click();
-							},5000
-						);
-					}
-				);
-				
-				$(".main_image").bind("touchstart",function(){
-					clearInterval(timer);
-				}).bind("touchend", function(){
-					timer = setInterval(function(){
-						$("#btn_next").click();
-					}, 5000);
-				});
-				//焦点图插件代码结束
-				
-				//topbar 单击样式
-				$(".topbar li a").click(function(){
-					$(this).css("color", "#0153a5");
-					$(this).parent().siblings().find("a").css("color", "#666");
-				});
-				
-				//鼠标经过列表样式
-				$(".left_ul li").hover (
-					function(){
-						$(this).addClass("li_click_b");
-					},
-					function(){
-						$(this).removeClass("li_click_b");
-					}
-				);
-				
-				<!-- 下面滚动图插件开始 -->
-				$li1 = $(".apply_nav .apply_array");
-				$window1 = $(".apply .apply_w");
-				$left1 = $(".apply .img_l");
-				$right1 = $(".apply .img_r");
-				$window1.css("width", $li1.length*176);
-				var lc1 = 0;
-				var rc1 = $li1.length-5;
-				$left1.click(function(){
-					if (lc1 < 1) {
-						
-						return;
-					}
-					lc1--;
-					rc1++;
-					$window1.animate({left:'+=176px'}, 1000);
-				});
-				$right1.click(function(){
-					if (rc1 < 1){
-						
-						return;
-					}
-					lc1++;
-					rc1--;
-					$window1.animate({left:'-=176px'}, 1000);
-				});
-				<!-- 下面滚动图插件结束 -->
-			});
-		</script>
-	</head>
-	<body>
-		<div class="main">
-			<div class="header">
-				<div class="help">
-					<a href="">联系我们</a> | 
-					<a href="">站点帮助</a> | 
-					<a href="">问题反馈</a> 
-				</div>
-			</div>
-			<div class="topbar">
-				<ul>
-					<li><a href="index.html">首页</a></li>
-					<li><a class="clicked" href="about.html">公园简介</a></li>
-					<li><a href="news.html">新闻动态</a></li>
-					<li><a href="show.html">景区图片</a></li>
-					<li><a href="map.html">详细地址</a></li>
-					<li><a href="gaikuang.html">景区概况</a></li>
-					<li><a href="wenhua.html">景区文化</a></li>
-					<li><a href="menpiao.html">门票政策</a></li>
-					<li><a href="lianxi.html">联系我们</a></li>
-				</ul>
-			</div>
-			<!-- 好像只有添加iframe才能使头部独立成一个文件来处理，而且使用js给导航栏添加单击样式
-			<iframe name="contain" width="100%" height="100%"></iframe>
-			-->
-			<div class="content">
-				<div class="bar">
-					<img src="images/bar1.jpg" />
-				</div>
-				<div class="int">
-					<div class="int_con">
-					  <p>
-							<span style="color: #0550a3; font-weight: bold;">明月山旅游区位于赣西中部有"中国宜居城市"、"国家园林城市"、"国家卫生城市"、"国家绿化模范城市"、"2010中国最佳休闲养生城市"之称的宜春市中心城西南15公里处，旅游区面积104平方公里。</span>景区由12座海拔千米以上的大小山峰组成，主峰太平山海拔1735.6米。明月山景区融山、石、林、泉、瀑、湖、竹海为一体，集雄、奇、幽、险、秀于一身，拥有五顶国字号桂冠：国家级风景名胜区、国家AAAA景区、国家森林公园、国家地质公园、国家自然遗产，也是全国自驾游示范基地、中国最具影响力森林公园、中国首批自驾车旅游统计信息数据采集点，是一个"以月亮情吸引人，用生态美景留住人"的集生态游览、休闲度假、科普教育、宗教旅游为一体的山岳型风景名胜区。
-					  </p>
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="173oOEe7Tg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="jellybool,JellyBool,PHP,Laravel">
+    <meta name="description" content="A Web Developer Full of Enthusiasm And Passion">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Jellybool blog">
+    <meta property="og:description" content="A Web Developer And Designer Full of Enthusiasm And Passion">
+    <meta property="og:url" content="https://jellybool.com/">
+    <meta property="og:site_name" content="JellyBool">
+    <meta property="article:section" content="PHP">
+    <meta property="article:published_time" content="">
+    <meta property="article:modified_time" content="">
+    <meta property="og:updated_time" content="">
+    <link rel="canonical" href="https://jellybool.com/">
+    <link rel="shortcut icon" href="https://jellybool.com/images/logo.ico">
+    <title>About JellyBool</title>
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway';
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
 
+            .full-height {
+                height: 100vh;
+            }
 
-						<p>【月亮文化唯美浪漫】明月山以月为名，因月扬名。月亮文化，是明月山之灵，是明月山之魂。明月山将月亮文化景观和自然景观有机融合，形成了 &ldquo;山上有个月亮湖，山下一个月亮湾，沿途都是月亮景，处处体现月亮情&rdquo;的情景交融格局，从月亮湾到月亮湖，可倾情体验浪漫月亮情怀：明月广场相遇、荷塘月前相识、咏月碑林相知、竹林月影相约、晃月桥上相牵、抱月亭中相恋、浸月潭边相印、月下老人相系、拜月坛上相誓、梦月山庄相拥，明月处处有，此山月最明。在明月山你可享受着独特的&ldquo;月在山中行，山在月中明&rdquo;的绝妙意境。</p>
-						<p>【自然风光秀美迷人】 明月山旅游区属亚热带湿润季风性气候，山水奇特，气候温和，年平均气温在12℃——15℃左右，年平均降水量为1800—2000mm，适应各种动植物生长，素有&ldquo;天然动植物园&rdquo;之美称。因为原始风貌保护良好，植被茂盛，所以空气负离子含量高达每立方厘米7万多个，是国家标准的35倍，堪称&ldquo;天然氧吧&rdquo;。现在开发较为完善的有潭下景区，这里有万顷竹海青翠欲滴，穿行于竹林心旷神怡，景区更有五叠形态各异、各具特色的瀑布令人叹为观止，其中&ldquo;云谷飞瀑&rdquo;全长119.57米，属江西第一高瀑，还有&ldquo;玲珑瀑&rdquo;、&ldquo;鱼鳞瀑&rdquo;、&ldquo;玉龙瀑&rdquo;和&ldquo;飞练瀑&rdquo;都各具特色，美不胜收。</p>
-						<p>【禅宗文化历史悠久】唐会昌元年(841年)，我国佛教禅宗五派之一沩仰宗创始人慧寂禅师在明月山之仰山创建栖隐寺(太平兴国寺)。自此一千多年佛事活动绵延不息，沩仰宗风遍传天下，成为中国古代佛教丛林胜地，印度、新罗国(今朝鲜半岛)、日本等海内外僧人前来参学问道，游览观光者不可胜数。过往名贤往往慕名造访，在此留下了众多碑碣及摩崖题刻。古寺旧址上依旧生机勃勃的千年古银杏树与周边100多座唐、宋、明、清时期禅僧的舍利塔见证了那一段历史。万法归一，饮水思源。为了修整和恢复栖隐寺，再造佛界生机，在原中国佛教协会会长一诚大师的发起和主持下，栖隐禅寺于2011年9月重建落成，祥云绕宝刹、钟磬答晨暮的景象，重现于仰山幽谷之中。国际温泉禅修中心的建成，将使仰山成为游人用温泉洗涤尘埃，用禅宗净化心灵的旅游胜地。</p>
-						<p>【农耕文化古朴厚重】  明月山农耕文化源远流长，&ldquo;梯田&rdquo;一词最早就源于明月山之仰山。被誉为十七世纪百科全书的《天工开物》是一部中国古代农业科技的百科全书，作者宋应星是宜春奉新人，现在明月山下建成的开工开物园，将宋应星的《天工开物》这本书建成了一个融古代农耕科技展示、传统手工制作参与、中国农耕文化陶冶为一体的体验性乐园。开工开物园共设三个大馆：陈列展览馆、游览参与馆、演艺展示馆。采用现代方式演绎古代农业、手工科技文明，旨在充分挖掘宜春厚重的农耕文化，结合现代旅游，让游客寓教于乐、寓教于游、把教于趣。</p>
-						<p>明月山旅游区把月亮文化与禅宗文化、农耕文化有机结合，营造了山月相融、禅月相通、泉月相印、农月相趣、人月共欢的山水文化意境，是江西旅游发展的又一璀璨明珠。</p>
-						<p>　　爱我，就带我去明月山！多情的明月山热忱欢迎各界宾朋常来观光、旅游、休闲、度假！</p>
-<br>
-<br>
-<div class="t_c">
-			<img src="images/1.jpeg" />
-	    </div>
-						<p>中国最险的七大悬空栈道之一 青云栈道</p>
-						<div class="t_c">
-							<img src="images/2.jpg" height="393" />
-		        </div>
-						<p>夕阳西下的云姑沐月</p>
-					  <div class="t_c">
-						<p><img src="images/3.jpg" height="574" />
-					    </p>
-					    <p>飞流直下的云谷瀑布</p>
-						</div>
-                        <div class="t_c">
-			<img src="images/4.jpg" />
-	    </div>
-					  <p>月与山的交融</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<p class="address">地址：江西省宜春市袁州区学府路576号宜春学院</p>
-			<p>鄢剑涛个人作品</p>
-		</div>
-		
-	</body>
-</html>	
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+            .title a img {
+                max-height: none!important;
+                width: 120px;
+                height: 120px;
+                overflow: hidden;
+                border-radius: 50%;
+                background: #FFF;
+                box-shadow: rgba(255,255,255,1) 0 0 0 5px,rgba(0,0,0,1) 0 0 5px 4px;
+                -webkit-transition: -webkit-transform 600ms;
+                -moz-transition: -moz-transform 600ms;
+                transition: transform 600ms;
+            }
+            .title a img:hover {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    <a href="/">
+                       <img src="https://dn-laravist.qbox.me/avatar_myself_3.jpg" alt="JellyBool">
+                    </a>
+                </div>
+                <div class="links">
+                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/JellyBool">
+                     这是我的个人简介页面，你可以到 GitHub 上关注我。
+                  </a>
+                </div>
+            </div>
+        </div>
+    
+</body></html>
