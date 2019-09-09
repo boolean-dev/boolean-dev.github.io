@@ -1,143 +1,132 @@
-<html lang="zh-CN"><head>
-    <meta charset="UTF-8">
-	<link rel="icon" href="./favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
-   <meta name="baidu-site-verification" content="173oOEe7Tg">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=0.6, maximum-scale=1, user-scalable=no">
-   <meta name="renderer" content="webkit">
-   <meta http-equiv="Cache-Control" content="no-siteapp">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="keywords" content="booleandev,boolean,yanjiantao,blog,index">
-   <meta name="description" content="A Web Developer Full of Enthusiasm And Passion">
-    
-    <title>Boolean</title>
-    <style>
-        html, body {
-           //  background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway';
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
+<!DOCTYPE html>
+<html>
 
-        .full-height {
-            height: 100vh;
-        }
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dmego Home">
+    <meta name="keywords" content="Dmego,Homepage">
+    <meta name="author" content="Dmego">
+    <title>Dmego Home</title>
+    <link rel='stylesheet' type='text/css' href='https://cdn.webfont.youziku.com/webfonts/nomal/123918/33195/5d21f88af629d8080c5960eb.css' />
+    <link rel="stylesheet" type="text/css" href="./assets/css/vno.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/iconfont.css">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+    <link rel="icon" href="./favicon.ico">
+</head>
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+<body>
+    <span class="mobile btn-mobile-menu">
+        <i class="social iconfont icon-list btn-mobile-menu__icon"></i>
+        <i class="social iconfont icon-angleup btn-mobile-close__icon hidden"></i>
+    </span>
+    <header id="panel" class="panel-cover">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content">
+                    <div class="ih-item circle effect right_to_left">            
+                        <a href="#" title="" class="blog-button">
+                            <div class="img"><img src="./img/logo2.jpg" alt="img" class="js-avatar iUp profilepic"></div>
+                            <div class="info iUp">
+                                <div class="info-back">
+                                    <h2> 
+                                        
+                                            Fighting
+                                        
+                                    </h2>
+                                    <p>
+                                        
+                                            2019 · 努力
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-        .position-ref {
-            position: relative;
-        }
+                    <!-- <a href="#" title="Dmego Home" class="profilepic">
+                        <img src="./img/logo2.jpg" width="80" alt="Dmego`s logo" class="js-avatar iUp show" />
+                    </a> -->
+                    <h1 class="panel-cover__title panel-title iUp">
+                        <a href="#" title="Dmego Home">Dmego</a>
+                    </h1>
+                    <p class="panel-cover__subtitle panel-subtitle iUp">Code Create Life</p>
+                    <hr class="panel-cover__divider iUp" />
+                    <p id="description" class="panel-cover__description iUp">如何得与凉风约，不共尘沙一并来!
+                        <br/>
+                        <strong>-「中牟道中」</strong>
+                    </p>
+                    <div class="navigation-wrapper iUp">
+                        <div>
+                            <nav class="cover-navigation cover-navigation--primary">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="/" class="blog-button">首页</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://dmego.me" class="blog-button" target="_blank">博客</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://r.dmego.me" class="blog-button" target="_blank">简历</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="https://dmego.me/about/" class="blog-button" target="_blank">关于</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="iUp">
+                            <nav class="cover-navigation navigation--social">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://github.com/dmego/" title="github" target="_blank">
+                                            <i class='social iconfont icon-github'></i>
+                                            <span class="label">github</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="http://www.cnblogs.com/dmego/" title="cnblogs" target="_blank">
+                                            <i class='social iconfont icon-cnblogs'></i>
+                                            <span class="label">cnblogs</span>
+                                        </a>
+                                    </li>
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-            -webkit-user-select: none;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-        .title a img {
-            max-height: none!important;
-            width: 120px;
-            height: 120px;
-            overflow: hidden;
-            border-radius: 50%;
-            background: #FFF;
-            box-shadow: rgba(255,255,255,1) 0 0 0 5px,rgba(0,0,0,1) 0 0 5px 4px;
-            -webkit-transition: -webkit-transform 600ms;
-            -moz-transition: -moz-transform 600ms;
-            transition: transform 600ms;
-        }
-        .title a img:hover {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    <a href="/">
-                       <img src="head.jpg" alt="booleandev">
-                    </a>
+                                    <li class="navigation__item">
+                                        <a href="https://www.zhihu.com/people/dmego/" title="zhihu" target="_blank">
+                                            <i class='social iconfont icon-zhihu'></i>
+                                            <span class="label">zhihu</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="mailto:dmeago@gmail.com" title="email">
+                                            <i class='social iconfont icon-email'></i>
+                                            <span class="label">email</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-                <div class="links">
-                    <a target="_blank" rel="noreferrer noopener" href="http://blog.csdn.net/booleaning">CSDN</a>
-                    <a target="_blank" rel="noreferrer noopener" href="http://blog.booleandev.xyz">博客</a>
-                    <a target="_blank" rel="noreferrer noopener" href="https://weibo.com/3250230854">微博</a>
-                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/boolean-dev">Github</a>
-                </div>
-                <br/>
-
-                <!-- <div class="links">
-                    <a >我的项目: </a>
-                    <a target="_blank" rel="noreferrer noopener" href="http://123.206.70.164:8080/goods/">网络书城前台</a>
-                    <a target="_blank" rel="noreferrer noopener" href="http://123.206.70.164:8080/goods/adminjsps/admin/">网络书城后台</a>
-                    <a target="_blank" rel="noreferrer noopener" href="http://123.206.70.164:8080/crm_ssm">CRM系统</a>
-                </div> -->
             </div>
+            <div class="panel-cover--overlay cover-slate"></div>
         </div>
-    <canvas id="c_n9" width="1920" height="990" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
-    <script src="cancas.js"></script>
-    <script src="jquery-3.3.1.min.js"></script>
-  <script type="text/javascript">
-    /* 鼠标特效 */
-    var a_idx = 0;
-    jQuery(document).ready(function($) {
-        $("body").click(function(e) {
-            var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
-            var $i = $("<span></span>").text(a[a_idx]);
-            a_idx = (a_idx + 1) % a.length;
-            var x = e.pageX,
-            y = e.pageY;
-            $i.css({
-                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-                "top": y - 20,
-                "left": x,
-                "position": "absolute",
-                "font-weight": "bold",
-                "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
-            });
-            $("body").append($i);
-            $i.animate({
-                "top": y - 180,
-                "opacity": 0
-            },
-            1500,
-            function() {
-                $i.remove();
-            });
-        });
-    });
-  </script>
+        <!-- <div class="beian iUp">
+            <a class="icp" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">XXX</a>
+            <a class="gwab" href="http://www.beian.gov.cn/portal/recordQuery" target="_blank">XXX</a>
+        </div> -->
+        <div class="remark iUp">
+            <p class="power">Powered By 
+                <a href="https://bird.ioliu.cn/" target="_blank"> JsonBird </a> And 
+                <a href="https://hitokoto.cn/" target="_blank"> Hitokoto </a>
+            </p>
+        </div>
+    </header>
+    <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/js/fetch.min.js"></script>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
 </body>
+
 </html>
