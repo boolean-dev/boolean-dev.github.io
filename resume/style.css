@@ -1,0 +1,216 @@
+*{
+  margin: 0;
+  padding: 0;
+  /* font-family: "微软雅黑"; */
+  font-family: Roboto, 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
+  font-size: 14px;
+}
+body{
+  /* background-color: #eee; */
+  /* background-color:  #525659; */
+  overflow-x: hidden;
+  background-color: #fff;
+  background-image: linear-gradient(90deg, transparent 79px, transparent 79px, transparent 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.7em;
+  position: relative;
+}
+/* 大屏幕 */
+@media (min-width: 1200px) {
+  .col-lg-4{
+    float: left;
+    width: 33.33%;
+  }
+
+  .field-case{
+    float: left;
+    width: 33.33%;
+  }
+}
+
+/* 大屏幕 */
+@media (min-width: 979px) and (max-width: 1200px) {
+  .col-lg-4{
+    float: left;
+    width: 33.33%;
+  }
+
+  .field-case{
+    float: left;
+    width: 33.33%;
+  }
+}
+
+
+/* 平板电脑和小屏电脑之间的分辨率 */
+@media (min-width: 768px) and (max-width: 979px) {
+  .col-md-4{
+    float: left;
+    width: 33.33%;
+  }
+
+  .field-case{
+    float: left;
+    width: 33.33%;
+  }
+}
+ 
+/* 横向放置的手机和竖向放置的平板之间的分辨率 */
+@media (max-width: 767px) {
+  .col-sm-6{
+    float: left;
+    width: 50%;
+  }
+
+  .field-case{
+    float: left;
+    width: 50%;
+  }
+  
+  .content-resumn{
+    margin: 0 !important;
+    max-width: 100vw !important;
+  }
+
+  *{
+    font-size: 12px !important;
+  }
+
+  .larger{
+    font-size: 14px !important;
+  }
+  
+  .largest{
+    font-size: 16px !important;
+  }
+
+  .hidden-sm{
+    display: none;
+  }
+
+  .indent{
+    text-indent: 1rem !important;
+  }
+}
+ 
+/* 横向放置的手机及分辨率更小的设备 */
+@media (max-width: 480px) {
+  .col-xs-12{
+    float: left;
+    width: 100%;
+  }
+
+  .field-case{
+    float: left;
+    width: 100%;
+  }
+
+  .content-resumn{
+    margin: 0 !important;
+    max-width: 100vw !important;
+  }
+
+  *{
+    font-size: 12px !important;
+  }
+
+  .larger{
+    font-size: 14px !important;
+  }
+  
+  .largest{
+    font-size: 16px !important;
+  }
+
+  .hidden-xs{
+    display: none;
+  }
+
+  .indent{
+    text-indent: 1rem !important;
+  }
+}
+
+.header{
+  margin-bottom: 6px;
+}
+
+.color{
+  color: #00b0f0;
+}
+
+.bolder{
+  font-weight: 900;
+}
+
+.indent{
+  text-indent: 2rem;
+}
+
+.content-resumn{
+  width: 888px;
+  max-width: calc(100vw - 80px);
+  min-height: calc(100vh - 80px);
+  margin: 60px auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px silver;
+  box-shadow: 0 0 15px silver;
+  /* overflow: hidden; */
+}
+
+.resumn-case {
+  float: left;
+  width: 100%;
+}
+
+.resumn-case .header p{
+  padding-bottom: 12px;
+  border-bottom: 2px solid #00b0f0;
+}
+
+.resumn-case .content{
+  padding: 5px 5px 20px 5px;
+  line-height: 1.7;
+  float: left;
+}
+
+.label{
+  text-decoration: none;
+}
+
+.field{
+  text-decoration: none;
+}
+
+.larger{
+  font-size: 16px;
+}
+
+.largest{
+  font-size: 20px;
+}
+
+.field{
+  width: 100%;
+}
+
+.margin10{
+  margin: 10px 0;
+}
+
+.pdf-file{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #00b0f0;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.pdf-file a{
+  color: #fff;
+  text-decoration: none;
+}
